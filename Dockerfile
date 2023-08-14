@@ -1,4 +1,9 @@
-FROM ghcr.io/linuxserver/baseimage-kasmvnc:arm64v8-alpine318
+FROM node:18-alpine as base
+FROM base AS build
+
+# FROM node:16 AS base
+# FROM base AS build
+
 # title
 ENV TITLE=Chromium
 
@@ -9,12 +14,6 @@ RUN \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/*
-
-# add local files
-COPY /root /
-
-# FROM node:16 AS base
-# FROM base AS build
 
 WORKDIR /opt
 COPY package*.json ./
