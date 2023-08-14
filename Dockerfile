@@ -17,7 +17,7 @@ FROM base
 # RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
 RUN apt-get update
-RUN sudo apt install chromium-browser
+RUN apt-get install -y chromium-browser
 # RUN apt-get install -y google-chrome-stable
 
 WORKDIR /app
